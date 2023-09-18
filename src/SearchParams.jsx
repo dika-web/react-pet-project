@@ -19,7 +19,7 @@ const SearchParams = () => {
   const [animal, setAnimal] = useState("");
   const [breeds] = useBreedList(animal);
   // eslint-disable-next-line no-unused-vars
-  const [adoptedPet, _]= useContext(AdoptedPetContext)
+  const [adoptedPet, _] = useContext(AdoptedPetContext);
 
   const result = useQuery(["search", requestParams], fetchSearch);
   const pets = result?.data?.pets ?? [];
@@ -40,13 +40,12 @@ const SearchParams = () => {
           setRequestParams(obj);
         }}
       >
-
         {adoptedPet ? (
           <div className="pet image-container">
-            <img src={adoptedPet.images[0]} alt={adoptedPet.name}/>
+            <img src={adoptedPet.images[0]} alt={adoptedPet.name} />
           </div>
         ) : null}
-        
+
         <label htmlFor="location">
           Location
           <input id="location" name="location" placeholder="Location" />
